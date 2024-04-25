@@ -18,7 +18,7 @@ if (isset($_POST['submit'])) {
     if ($result->num_rows == 1) {
         $row = $result->fetch_assoc();
         if (isset($row["password"]) && password_verify($password, $row["password"])) {
-            $_SESSION['username'] = $row['company_name'];
+            $_SESSION['email'] = $row['email']; // Set email in session
             $_SESSION['loggedin'] = true;
             header("Location: company_home.php");
             exit();
@@ -30,6 +30,7 @@ if (isset($_POST['submit'])) {
     }
 }
 ?>
+
 
 
 <!DOCTYPE html>
